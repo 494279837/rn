@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text>Hello,World!!</Text>
                 <Button
                     onPress={()=>Actions.page1()}
                     title="登录"

@@ -1,3 +1,4 @@
 <resources>
+	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">5YMkHHnj-7BK5P9mrUsPnFV53NQge8537789-8137-44b7-97dc-b3d2d646520b</string>
     <string name="app_name">彩贝壳CRM</string>
 </resources>

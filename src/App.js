@@ -30,7 +30,7 @@ const getSceneStyle = () => ({
     shadowRadius: 3,
 });
 
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
@@ -44,3 +44,6 @@ export default class App extends Component {
         );
     }
 }
+
+// 这一行必须要写
+export default App;
