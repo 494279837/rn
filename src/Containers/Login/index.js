@@ -6,7 +6,7 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Hello,World!!</Text>
+                <Text>当前版本{window.IS_ENV}</Text>
                 <Button
                     onPress={()=>Actions.page1()}
                     title="登录"

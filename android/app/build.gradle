@@ -126,17 +126,46 @@ android {
         }
     }
     buildTypes {
-        debug{
-            buildConfigField "String", "CODEPUSH_KEY", '""'
+        debug {
+            matchingFallbacks = ['release','releaseStaging']
+            signingConfig signingConfigs.release
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "CODEPUSH_KEY", '"5YMkHHnj-7BK5P9mrUsPnFV53NQge8537789-8137-44b7-97dc-b3d2d646520b"'
+            buildConfigField "String", "IS_ENV", '"DEBUG"'
+            //为debug版本的包名添加.debug后缀
+            applicationIdSuffix ".debug"
+            // 设置manifest占位符
+            manifestPlaceholders = [
+                    APP_NAME: "@string/app_name_debug"
+            ]
+        }
+        releaseStaging {
+            matchingFallbacks = ['release','debug']
+            buildConfigField "String", "CODEPUSH_KEY", '"5YMkHHnj-7BK5P9mrUsPnFV53NQge8537789-8137-44b7-97dc-b3d2d646520b"'
+            buildConfigField "String", "IS_ENV", '"BETA"'
+            signingConfig signingConfigs.release
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //为Staging版本的包名添加.beta后缀
+            applicationIdSuffix ".beta"
+            // 设置manifest占位符
+            manifestPlaceholders = [
+                APP_NAME: "@string/app_name_staging"
+            ]
         }
         release {
+            buildConfigField "String", "CODEPUSH_KEY", '"BuaLgRC_mRggi_mue2c1yH4gYg6oe8537789-8137-44b7-97dc-b3d2d646520b"'
+            buildConfigField "String", "IS_ENV", '"PRO"'
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
-            buildConfigField "String", "CODEPUSH_KEY", '"5YMkHHnj-7BK5P9mrUsPnFV53NQge8537789-8137-44b7-97dc-b3d2d646520b"'
-        }
-        releaseStaging {
-            buildConfigField "String", "CODEPUSH_KEY", '"BuaLgRC_mRggi_mue2c1yH4gYg6oe8537789-8137-44b7-97dc-b3d2d646520b"'
+            //为Staging版本的包名添加.beta后缀
+            applicationIdSuffix ".pro"
+            // 设置manifest占位符
+            manifestPlaceholders = [
+                APP_NAME: "@string/app_name_release"
+            ]
         }
     }
     // applicationVariants are e.g. debug, release
