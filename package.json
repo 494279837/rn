@@ -7,10 +7,10 @@
     "build_android": "cd android && ./gradlew assembleRelease",
     "test": "jest",
     "lint": "eslint .",
-    "android": "react-native run-android --appIdSuffix=debug --no-packager && adb reverse tcp:8083 tcp:8083",
-    "android-debug": "rm -rf android/app/build/outputs/apk/debug && react-native run-android --variant=debug && open android/app/build/outputs/apk/debug/",
-    "android-staging": "rm -rf android/app/build/outputs/apk/releaseStaging && react-native run-android --variant=releaseStaging && open android/app/build/outputs/apk/releaseStaging/",
-    "android-release": "rm -rf android/app/build/outputs/apk/release && react-native run-android --variant=release && open android/app/build/outputs/apk/release/"
+    "android": "react-native run-android --appIdSuffix=debug && adb reverse tcp:8081 tcp:8081",
+    "android-debug": "rm -rf android/app/build/outputs/apk/debug && react-native run-android --variant=debug --no-packager && open android/app/build/outputs/apk/debug/",
+    "android-staging": "rm -rf android/app/build/outputs/apk/releaseStaging && react-native run-android --variant=releaseStaging --no-packager && open android/app/build/outputs/apk/releaseStaging/",
+    "android-release": "rm -rf android/app/build/outputs/apk/release && react-native run-android --variant=release --no-packager && open android/app/build/outputs/apk/release/"
   },
   "dependencies": {
     "react": "16.8.3",

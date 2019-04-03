@@ -92,7 +92,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -127,11 +127,7 @@ android {
     }
     buildTypes {
         debug {
-            matchingFallbacks = ['release','releaseStaging']
-            signingConfig signingConfigs.release
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "CODEPUSH_KEY", '"5YMkHHnj-7BK5P9mrUsPnFV53NQge8537789-8137-44b7-97dc-b3d2d646520b"'
+            buildConfigField "String", "CODEPUSH_KEY", '""'
             buildConfigField "String", "IS_ENV", '"DEBUG"'
             //为debug版本的包名添加.debug后缀
             applicationIdSuffix ".debug"
