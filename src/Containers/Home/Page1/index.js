@@ -12,6 +12,7 @@ class Page1 extends Component {
                 <Text>debug</Text>
                 <Text>de444bu!!!g</Text>
                 <Text>debug!</Text>
+                <Text>ios!</Text>
                 <Button
                     onPress={()=>Actions.test()}
                     title="内容1"
